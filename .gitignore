@@ -2,6 +2,7 @@
 Windows/**/Saved/Crashes/
 Windows/**/Saved/Logs/
 Windows/**/Saved/Config/CrashReportClient/
+Windows/**/steam_appid.txt
 
 # Development symbols are not required by connectivity testers and add
 # hundreds of megabytes to every published build.
