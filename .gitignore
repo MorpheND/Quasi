@@ -1,0 +1,13 @@
+# Runtime-generated files from packaged Unreal builds
+Windows/**/Saved/Crashes/
+Windows/**/Saved/Logs/
+Windows/**/Saved/Config/CrashReportClient/
+
+# Development symbols are not required by connectivity testers and add
+# hundreds of megabytes to every published build.
+Windows/**/*.pdb
+
+# Local archives and checksums generated for distribution
+*.zip
+*.7z
+*.sha256
