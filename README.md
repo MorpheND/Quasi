@@ -1,6 +1,6 @@
 # Quasi
 
-Private packaged build repository for local-network connectivity testing.
+Packaged build repository for local-network connectivity testing.
 
 ## Recommended download
 
@@ -11,9 +11,9 @@ extract the complete archive, then launch:
 Windows/ActionRoguelike.exe
 ```
 
-Do not use GitHub's green **Code → Download ZIP** button. Source archives may
+Do not use GitHub's green **Code -> Download ZIP** button. Source archives may
 contain Git LFS pointer files rather than runnable Windows binaries, which can
-produce the message “This app can't run on your PC.”
+produce the message "This app can't run on your PC."
 
 ## Git/LFS download
 
@@ -27,13 +27,41 @@ git lfs pull
 git lfs checkout
 ```
 
-The complete `Windows` directory is required in either case. Do not download or
-copy only the executable.
+The complete `Windows` directory is required. Do not download or copy only the
+executable.
 
-## Updating
+## Updating the packaged build
 
-The repository stores packaged Unreal binaries through Git LFS. Replace the
-contents of `Windows`, then commit and push the complete build.
+Replace the contents of `Windows`, then stage the changed files:
 
-For non-technical testers, also create a GitHub Release and attach a normal ZIP
+```powershell
+git add .gitattributes .gitignore README.md Windows
+git lfs status
+git status --short
+```
+
+Large `.exe`, `.dll`, `.pak`, `.ucas`, and `.utoc` files should appear as Git
+LFS objects after staging.
+
+Do not commit release ZIP files. Git LFS stores individual repository assets;
+GitHub Releases store the downloadable ZIP intended for testers.
+
+For non-technical testers, create a GitHub Release and attach a normal ZIP
 containing the hydrated `Windows` directory. Include its SHA-256 checksum.
+
+## Source assets
+
+This repository is prepared to store Unreal source assets through Git LFS if
+source is added later. `.uasset`, `.umap`, and common large media formats are
+already covered.
+
+Generated source-project directories such as `Binaries`, `Intermediate`,
+`Saved`, and `DerivedDataCache` should remain ignored.
+
+## Never commit
+
+- API keys or `.env` files
+- Game-session tickets
+- Runtime logs and crash dumps
+- Development `.pdb` symbols for tester builds
+- Generated release ZIP files
