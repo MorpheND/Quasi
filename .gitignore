@@ -12,3 +12,12 @@ Windows/**/*.pdb
 *.zip
 *.7z
 *.sha256
+
+# Runtime/debug leftovers from packaged Unreal builds
+Windows/Engine/Saved/
+Windows/**/Saved/
+Windows/Manifest_DebugFiles_Win64.txt
+Windows/**/d3d12SDKLayers.dll
+Windows/**/VkLayer_api_dump.*
+Windows/**/VkLayer_crash_diagnostic.*
+Windows/**/VkLayer_khronos_validation.*
